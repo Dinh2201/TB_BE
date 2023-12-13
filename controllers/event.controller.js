@@ -71,4 +71,13 @@ module.exports = {
       throw error;
     }
   },
+
+  deleteEvent: async (req, res) => {
+    try {
+      await eventModel.findOneAndDelete({ _id: req.params.id });
+      res.status(201).json("Xóa event thành công");
+    } catch (error) {
+      throw error;
+    }
+  },
 };
